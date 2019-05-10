@@ -24,8 +24,8 @@ import (
 	agentmetricspb "github.com/census-instrumentation/opencensus-proto/gen-go/agent/metrics/v1"
 	metricspb "github.com/census-instrumentation/opencensus-proto/gen-go/metrics/v1"
 	resourcepb "github.com/census-instrumentation/opencensus-proto/gen-go/resource/v1"
+	ptypes "github.com/gogo/protobuf/types"
 	"github.com/golang/protobuf/proto"
-	"github.com/golang/protobuf/ptypes/timestamp"
 )
 
 type bundling struct {
@@ -33,7 +33,7 @@ type bundling struct {
 	node        *commonpb.Node
 	resource    *resourcepb.Resource
 	point       *metricspb.Point
-	ts          *timestamp.Timestamp
+	ts          *ptypes.Timestamp
 	labelValues []*metricspb.LabelValue
 }
 

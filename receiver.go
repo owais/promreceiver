@@ -27,7 +27,7 @@ import (
 
 	gokitLog "github.com/go-kit/kit/log"
 
-	"github.com/golang/protobuf/ptypes/timestamp"
+	ptypes "github.com/gogo/protobuf/types"
 	"github.com/prometheus/prometheus/config"
 	"github.com/prometheus/prometheus/discovery"
 	sd_config "github.com/prometheus/prometheus/discovery/config"
@@ -986,9 +986,9 @@ func orderedTagsToLabelKeysLabelValues(orderedTags labels.Labels) (labelKeys []*
 	return
 }
 
-func timestampFromMs(timeAtMs int64) *timestamp.Timestamp {
+func timestampFromMs(timeAtMs int64) *ptypes.Timestamp {
 	secs, ns := timeAtMs/1e3, (timeAtMs%1e3)*1e6
-	return &timestamp.Timestamp{
+	return &ptypes.Timestamp{
 		Seconds: secs,
 		Nanos:   int32(ns),
 	}
